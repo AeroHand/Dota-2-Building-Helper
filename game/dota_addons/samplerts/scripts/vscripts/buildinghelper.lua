@@ -13,7 +13,7 @@ GRIDNAV_SQUARES = {}
 BUILDING_SQUARES = {}
 
 --change this variable to be false if u dont want the construction area for each player
-RESTRICTION_AREA_OPEN=true
+RESTRICTION_AREA_OPEN=false
 --these tables are special for restricted areas. 
 MYLL_SQUARES = {}
 --players could plant several trigger entities in map to indicate the open area for each player
@@ -113,13 +113,12 @@ function BuildingHelper:Init(...)
 
 			end
 		    --for each square check if the square is inside the construction zone
-            local temp=Entities:FindByName(nil, "buildarea_0")
-            print(temp:GetName())
+            
             for _,thing in pairs(Entities:FindAllInSphere(GetGroundPosition(Vector(x,y,0), nil), CHECKINGRADIUS))  do
                 --find the construction zone where this vector is in
                 local AreaName=thing:GetName()
                 local pid=tonumber(string.sub(AreaName,11,11))
-                print("this vector is inside the player ",pid," 's building area (",x,",", y, ")" )
+                
                 if (not(pid==nil)) then
                   MYLL_SQUARES[pid][VectorString(Vector(x,y,0))] = true
                 end  

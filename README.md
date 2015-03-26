@@ -139,6 +139,19 @@ If you need help I can be reached on irc.gamesurge.net #dota2modhelpdesk or you 
 
 [**Known issues**](https://github.com/Myll/Dota-2-Building-Helper/issues)
 
+#### Different Construction Area for each player
+
+In buildinghelper.lua, you will find a variable called RESTRICTION_AREA_OPEN. You could open this feature by setting its value to TRUE. 
+
+After that you could create entities inside hammer in your vmap file. You could plant several trigger entities in map to indicate the open area for each player
+And here is the name rule for those construction area:
+                           buildarea_playerid
+                       ex. buildarea_0 buildarea_1 etc.
+                           multi entities with the same name is valid
+After that each player could only build buildings inside the construction area. 
+
+
+
 ## Contributing
 
 Contributing to this repo is absolutely welcomed. Building Helper's goal is to make Dota 2 a more compatible platform to create RTS-style and Tower Defense mods. It will take a community effort to achieve this goal, not just me.
